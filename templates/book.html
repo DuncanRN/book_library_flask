@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        <h1>Book</h1>
+        <div>
+            <p>
+            
+                <h2>{{ book.title }}: </h2> 
+                {{ book.author }}<br>
+                genre {{ book.genre }}<br>
+                checked out of library {{ book.checked_out }}
+
+            {% if book.checked_out %}
+            <img src="/static/recurring_logo.png" width="20" height="20">
+
+            {% endif %}
+
+            
+            </p>
+        </div>
+{% endblock %}
