@@ -15,8 +15,23 @@
             <img src="/static/recurring_logo.png" width="20" height="20">
 
             {% endif %}
-
-            
+                <form action="/change_checked_out_status/{{ book.book_id }}/" >
+                    <fieldset>
+                        <legend>Is this book checked out:</legend>
+                    
+                        <div>
+                            <input type="radio" id="is_checked_out" name="is_checked_out" value="True"
+                                    checked>
+                            <label for="is_checked_out">Is checked out</label>
+                        </div>
+                    
+                        <div>
+                            <input type="radio" id="checked_out" name="checked_out" value="False">
+                            <label for="in_library">Is in library</label>
+                        </div>
+                    </fieldset>
+                    <input type="submit" value="Change checked out status" class="button">
+                </form>
             </p>
         </div>
 {% endblock %}

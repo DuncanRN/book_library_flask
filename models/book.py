@@ -7,3 +7,5 @@ class Book():
         self.checked_out = checked_out
         self.book_id = book_id
         self.return_date = return_date
+
+    # def add_new_book_to_library();
