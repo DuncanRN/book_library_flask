@@ -20,6 +20,9 @@
                 <option value="False">in library</option>
             </select>
 
+            <input type="date" id="return_date_picker" name="return_date_picker">
+            
+
             <input type="submit" value="Add Book" class="button">
 
         </form>
@@ -41,7 +44,9 @@
 <br>
 book checked out - 
 
-{{  book.checked_out }}
+{{  book.checked_out }}<br>
+
+date to return the book  {{  book.return_date }}
 <br>
 
             {% if book.checked_out %}

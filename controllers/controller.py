@@ -2,7 +2,7 @@ from flask import render_template, request
 from app import app
 from models.library import library, add_new_book_to_library, remove_book_from_library
 from models.book import Book
-
+import datetime
 
 @app.route('/books')
 def index():
@@ -18,6 +18,8 @@ def add_book():
     checked_out = request.form['checked_out']
     book_id = request.form['book_id']
 
+    return_date_picker = request.form['return_date_picker']
+    date_of_event = datetime.date(int(return_date_picker[0:4]),int(return_date_picker[5:7]),int(return_date_picker[8:10]))
 
 
     if checked_out == "True":
@@ -25,7 +27,7 @@ def add_book():
     else:
         checked_out_bool = False
 
-    new_book = Book(book_id, book_title, author, genre, checked_out_bool)
+    new_book = Book(book_title, author, genre, checked_out_bool, book_id, date_of_event)
     add_new_book_to_library(new_book) # should this be library.add_book_to_library ?
 
     return render_template('index.html', title='Home', library=library)
